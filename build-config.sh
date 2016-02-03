@@ -2,9 +2,10 @@
 
 mkdir -p node_modules
 cd node_modules
-[ -e ep_etherpad-lite ] || ln -s ../src ep_etherpad-lite
-cd ../src
-[ -e node_modules ] || ln -s ../node_modules node_modules
+mkdir -p node_modules
+mv * node_modules
+ln -s ../src ep_etherpad-lite
+mv node_modules ep_etherpad-lite
 cd ..
 
 sed -i s/ADMIN_PASSWD/$ADMIN_PASSWD/g settings.json
